@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}¡Game Over!{% endblock %}
+
+{% block body %}
+<div class="centered-text">
+    <h1 class="scary-title">Ya no tienes más vidas!</h1>
+    <p class="scary-text">Si quieres, puedes volver a empezar</p>
+    <a href="{{ path('escape_home') }}" class="btn-bloody">Volver a jugar</a>
+</div>
+{% endblock %}

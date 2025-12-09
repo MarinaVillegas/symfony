@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Niveles{% endblock %}
+
+{% block body %}
+    <h1 class="scary-text">Niveles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Acertijo</th>
+                <th>Solución</th>
+                <th>Pista</th>
+                <th>Orden</th>
+                <th>acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for level in levels %}
+            <tr>
+                <td>{{ level.id }}</td>
+                <td>{{ level.title }}</td>
+                <td>{{ level.description }}</td>
+                <td>{{ level.riddle }}</td>
+                <td>{{ level.solution }}</td>
+                <td>{{ level.hint }}</td>
+                <td>{{ level.orderNumber }}</td>
+                <td>
+                    <a href="{{ path('app_level_show', {'id': level.id}) }}">ver</a>
+                    <a href="{{ path('app_level_edit', {'id': level.id}) }}">editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no se han encontrado</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_level_new') }}" class="btn-bloody">Crear nuevo nivel</a>
+{% endblock %}

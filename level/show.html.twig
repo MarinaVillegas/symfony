@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Level{% endblock %}
+
+{% block body %}
+    <h1 class="scary-title">Niveles</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ level.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ level.title }}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td>{{ level.description }}</td>
+            </tr>
+            <tr>
+                <th>Acertijo</th>
+                <td>{{ level.riddle }}</td>
+            </tr>
+            <tr>
+                <th>Solución</th>
+                <td>{{ level.solution }}</td>
+            </tr>
+            <tr>
+                <th>Pista</th>
+                <td>{{ level.hint }}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ level.orderNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_level_index') }}" class="btn-bloody">Volver</a>
+
+    <a href="{{ path('app_level_edit', {'id': level.id}) }}" class="btn-bloody">Editar</a>
+
+    {{ include('level/_delete_form.html.twig') }}
+{% endblock %}

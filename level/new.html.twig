@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Level{% endblock %}
+
+{% block body %}
+    <h1 class="scary-title">Crear Nuevo Nivel</h1>
+
+    {{ include('level/_form.html.twig') }}
+
+    <a href="{{ path('app_level_index') }}" class="btn-bloody">Volver</a>
+{% endblock %}

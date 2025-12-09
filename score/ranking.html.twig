@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ranking{% endblock %}
+
+{% block body %}
+<div class="scary-title">🏆 Top Puntuaciones</div>
+
+{% if puntuaciones is not empty %}
+    {% for puntuacion in puntuaciones %}
+        <div class="centered-text" style="border: 2px solid #ff0000; border-radius: 10px; margin: 10px auto; width: fit-content; padding: 15px; background-color: rgba(0,0,0,0.5);">
+            <p><strong>Jugador:</strong> {{ puntuacion.user.username }}</p>
+            <p><strong>Nivel alcanzado:</strong> {{ puntuacion.levelReached }}</p>
+            <p><strong>Puntos:</strong> {{ puntuacion.score }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="centered-text">
+        <p>No hay puntuaciones aún.</p>
+    </div>
+{% endif %}
+
+<a href="{{ path('escape_home') }}" class="btn-bloody">Volver al juego</a>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}¡UPS!{% endblock %}
+
+{% block body %}
+    <h1 class="scary-title">¡Respuesta incorrecta!</h1>
+    <p class="scary-text">No lograste resolver el acertijo correctamente.</p>
+    <p class="scary-text">Recuerda que los acertijos se resuelven con UNA sola palabra.</p>
+    <a class="btn-bloody" href="{{ path('escape_return') }}">Volver al juego</a>
+{% endblock %}

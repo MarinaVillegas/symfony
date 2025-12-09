@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html data-turbo="false">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Escape Room{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+        {% block stylesheets %}
+        {% endblock %}
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    {% if app.user %}
+        <div class="bloody-bar">
+            <span class="left">
+                <p>Haz iniciado sesión como {{ app.user.userIdentifier }}</p>
+                <a href="{{ path('escape_home') }}">Menu principal</a>
+                <a href="{{ path('about') }}">About</a>
+            </span>
+            <span class="right">
+                <a href="{{ path('app_score_user') }}">Mis Puntajes</a>
+                <a href="{{ path('app_ranking') }}">Ranking</a>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_level_index') }}">Administrar Niveles</a>
+                {% endif %}
+
+                <a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+            </span>
+        </div>
+    {% endif %}
+
+    {% block body %}
+    
+    {% endblock %}
+</body>
+</html>

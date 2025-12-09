@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}¡Felicidades!{% endblock %}
+
+{% block body %}
+<div class="centered-text">
+    <div>
+        <h1>¡Has completado el Escape Room!</h1>
+        <p>Cuando Oscar lee en su móvil el mensaje que dice “gracias”, entra en pánico y su nerviosismo lo traiciona; el perro de Rosalía, asustado por el caos, lo ataca mientras la policía llega rápidamente para controlar la situación.</p>
+        <p>Él, temblando y sin poder reaccionar, señala la casa de al lado como el lugar donde alguien necesita ayuda.</p>
+        <p>Rosalía, finalmente libre gracias a la policía, sale corriendo hacia la luz del exterior y se encuentra con su mascota, que la recibe con ladridos y saltos de alegría.</p>
+        <p>El miedo y la tensión desaparecen poco a poco, reemplazados por un alivio profundo y la sensación de libertad, mientras la pesadilla que la había mantenido atrapada queda atrás, dejando espacio solo para la emoción de haber sobrevivido y la felicidad de estar a salvo.</p>
+        <p>¿Te atreves a jugar de nuevo?</p>
+
+        <a href="{{ path('escape_home') }}" class="btn btn-bloody">Volver a jugar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mis Puntajes{% endblock %}
+
+{% block body %}
+<div class="scary-title">Mis Puntajes</div>
+
+{% if puntuaciones is not empty %}
+    {% for puntuacion in puntuaciones %}
+        <div class="centered-text" style="border: 2px solid #ff0000; border-radius: 10px; margin: 20px auto; width: fit-content; padding: 15px; background-color: rgba(0,0,0,0.5);">
+            <p><strong>Nivel:</strong> {{ puntuacion.levelReached }}</p>
+            <p><strong>Puntos:</strong> {{ puntuacion.score }}</p>
+            <p><strong>Vidas:</strong> {{ puntuacion.lives }}</p>
+            <p><strong>Tiempo:</strong> {{ puntuacion.time }} seg</p>
+            <p><strong>Ganó:</strong> {{ puntuacion.sucess ? 'Sí' : 'No' }}</p>
+            <p><strong>Intentos:</strong> {{ puntuacion.tries }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="centered-text">
+        <p>No tienes puntajes aún.</p>
+    </div>
+{% endif %}
+
+<a href="{{ path('escape_home') }}" class="btn-bloody">Volver al juego</a>
+{% endblock %}
+

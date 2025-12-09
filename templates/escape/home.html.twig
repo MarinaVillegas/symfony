@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Escape Room{% endblock %}
+
+{% block body %}
+
+<div class="main-content">
+    <h1 class="scary-title">Peligro Cercano...</h1>
+    <p class="scary-text">Presiona empezar para jugar.</p>
+    <a href="{{ path('escape_level', {id: 1}) }}" class="btn btn-bloody">Empezar</a>
+</div>
+
+
+{% endblock %}
+

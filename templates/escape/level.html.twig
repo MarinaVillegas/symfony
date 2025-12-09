@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ level.title }}{% endblock %}
+
+{% block body %}
+{% if app.session.get('lives') is not null %} 
+<div class="lives-display"> 
+{% for i in 1..app.session.get('lives') %} 
+<img src="{{ asset('heart.png') }}" class="life-icon" alt="Vida"> 
+{% endfor %} 
+</div> 
+{% endif %}
+<div class="centered-text">
+<h2 class="scary-text">{{ level.title }}</h2>
+<p>{{ level.description }}</p>
+<h3>Resuelve el siguiente acertijo:</h3>
+<p>{{ level.riddle }}</p>
+
+<form method="post" action="{{ path('escape_solve', {id: level.id}) }}">
+    <input type="text" name="answer" placeholder="Escribe tu respuesta">
+    <button type="submit" class="btn btn-bloody">Enviar</button>
+</form>
+<button id="hintButton" class="btn btn-secondary">Mostrar pista</button>
+    <p id="hintText" style="display:none;">
+        {{ level.hint }}
+    </p>
+
+    <script>
+        const btn = document.getElementById('hintButton');
+        const hint = document.getElementById('hintText');
+
+        btn.addEventListener('click', () => {
+            if (hint.style.display === 'none') {
+                hint.style.display = 'block';
+                btn.textContent = 'Ocultar pista';
+            } else {
+                hint.style.display = 'none';
+                btn.textContent = 'Mostrar pista';
+            }
+        });
+    </script>
+</div>
+{% endblock %}

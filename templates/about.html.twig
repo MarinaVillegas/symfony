@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobre Nosotr@s{% endblock %}
+
+{% block body %}
+
+<div class="main-content">
+    <h1 class="scary-title">Sobre Nosotr@s</h1>
+    <p class="scary-text"><strong>Peligro cercano</strong> es un juego pero en realidad no es un juego, puede pasar en cualquier momento y solamente si eres lo suficientemente sagáz lograrás escapar de las manos de tu captor.</p>
+    <a href="{{ path('escape_level', {id: 1}) }}" class="btn btn-bloody">Empezar</a>
+</div>
+
+
+{% endblock %}

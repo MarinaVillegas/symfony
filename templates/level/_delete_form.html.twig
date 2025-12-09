@@ -1,0 +1,5 @@
+
+<form method="post" action="{{ path('app_level_delete', {'id': level.id}) }}" onsubmit="return confirm('¿Estás segur@ de borrar este nivel?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ level.id) }}">
+    <button class="btn-bloody">Borrar</button>
+</form>
